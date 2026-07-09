@@ -19,4 +19,17 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          fabric: ['fabric'],
+          pdf: ['jspdf', 'html2canvas'],
+          zip: ['jszip'],
+          react: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 2000,
+  },
 })
